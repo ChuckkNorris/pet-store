@@ -1,3 +1,14 @@
-<p>
-  browse-pets works!
-</p>
+<md-card>
+  <md-card-title>Basic grid list</md-card-title>
+  <md-card-content>
+    <md-grid-list cols="4" rowHeight="3:4" gutterSize="5px">
+
+      <md-grid-tile *ngFor="let animal of animals" style="background: gray;">
+        <md-grid-tile-header>{{animal.name}} ({{animal.animalType.toString()}})</md-grid-tile-header>
+          PIC
+        <md-grid-tile-footer>{{animal.breeds.join(', ')}}</md-grid-tile-footer>
+      </md-grid-tile>
+
+    </md-grid-list>
+  </md-card-content>
+</md-card>

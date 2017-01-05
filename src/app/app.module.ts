@@ -7,7 +7,11 @@ import { AppComponent } from './app.component';
 import { AddPetComponent } from './pages/add-pet/add-pet.component';
 import { BrowsePetsComponent } from './pages/browse-pets/browse-pets.component';
 import { MaterialModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { AppRoutingModule } from './app-routing.module';
+
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    FlexLayoutModule.forRoot()
+    FlexLayoutModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

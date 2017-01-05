@@ -1,7 +1,23 @@
-<h1>
-  {{title}}
-</h1>
- 
- <button md-button color="primary">Hello</button>
+<md-toolbar color="accent">
+    <!--<md-tab-group >
+        <md-tab routerLinkActive="active" routerLink="/" label="Browse pets">
+        </md-tab>
+        <md-tab routerLinkActive="active" routerLink="/sell-pet" label="Sell Pet">
+        
+        </md-tab>
+      </md-tab-group>-->
 
-<app-add-pet></app-add-pet>
+      <nav md-tab-nav-bar>
+        <a md-tab-link routerLink="/browse-pets" routerLinkActive #rla="routerLinkActive" [active]="rlaSafe && rla.isActive">Browse Pets</a>
+        <a md-tab-link  routerLink="/sell-pet"  routerLinkActive #rlab="routerLinkActive" [active]="rlaSafe && rlab.isActive">Sell Pet</a>
+      </nav>
+  
+  <!--<button md-button routerLink="/" routerLinkActive="active" color="accent">Browse Pets</button>
+  <button md-button active routerLinkActive="active" routerLink="/sell-pet" color="accent">Sell Pet</button>-->
+</md-toolbar>
+
+
+<div class="app-content">
+  <router-outlet></router-outlet>
+</div>
+

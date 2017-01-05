@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ANIMALS } from '../../animal-data';
 
 @Component({
   selector: 'app-browse-pets',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./browse-pets.component.css']
 })
 export class BrowsePetsComponent implements OnInit {
-
+  animals = ANIMALS;
   constructor() { }
 
   ngOnInit() {

@@ -1,29 +1,26 @@
-<md-toolbar color="primary">
-  <button md-button color="accent">Browse Pets</button>
-  <button md-button color="accent">Sell Pet</button>
-</md-toolbar>
-<!--style="display:flex;flex-direction:row"-->
-<!--<div class="app-content" >-->
 
-<div class="flex-container" fxLayout="row" fxLayout.xs="column" rowspan="2" fxLayoutAlign="center center" fxLayoutAlign.xs="start">
 
-  <!--<div class="flex-item" fxFlex="20%" fxFlex.xs="40%"> -->
+  
+
+
+<div class="flex-container" fxLayout="row" fxLayout.xs="column" cols="3" fxLayoutAlign="center center" fxLayoutAlign.xs="start">
+
   <md-card flex-item fxFlex="20%" fxFlex.xs="40%">
     <button md-button>FLAT</button>
     <button md-raised-button md-tooltip="This is a tooltip!">RAISED</button>
     <button md-raised-button color="primary">PRIMARY RAISED</button>
     <button md-raised-button color="accent">ACCENT RAISED</button>
   </md-card>
-  <!--</div>-->
 
-  <!--<div class="flex-item" fxFlex="20%" fxFlex.xs="40%"> -->
+
+
   <md-card flex-item fxFlex="20%" fxFlex.xs="40%">
     <md-checkbox>Unchecked</md-checkbox>
     <md-checkbox [checked]="true">Checked</md-checkbox>
     <md-checkbox [indeterminate]="true">Indeterminate</md-checkbox>
     <md-checkbox [disabled]="true">Disabled</md-checkbox>
   </md-card>
-  <!--</div>-->
+
 
 
   <md-card flex-item fxFlex="20%" fxFlex.xs="40%">
@@ -42,7 +39,9 @@
 
 
 
-  <md-card *ngFor="let animal of animals" class="flex-item" >
+
+
+  <md-card class="flex-item">
     <md-card-subtitle>Subtitle first</md-card-subtitle>
     <md-card-title>Card with title</md-card-title>
     <md-card-content>
@@ -56,7 +55,7 @@
     </md-card-actions>
   </md-card>
 
-  <md-card class="flex-item" >
+  <md-card class="flex-item">
     <md-card-subtitle>Subtitle first</md-card-subtitle>
     <md-card-title>Card with title</md-card-title>
     <md-card-content>
@@ -70,7 +69,7 @@
     </md-card-actions>
   </md-card>
 
-  <md-card class="flex-item" >
+  <md-card class="flex-item">
     <md-card-subtitle>Subtitle first</md-card-subtitle>
     <md-card-title>Card with title</md-card-title>
     <md-card-content>
@@ -84,21 +83,7 @@
     </md-card-actions>
   </md-card>
 
-  <md-card class="flex-item" >
-    <md-card-subtitle>Subtitle first</md-card-subtitle>
-    <md-card-title>Card with title</md-card-title>
-    <md-card-content>
-      <p>This is supporting text.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad</p>
-    </md-card-content>
-    <md-card-actions>
-      <button md-button>LIKE</button>
-      <button md-button>SHARE</button>
-    </md-card-actions>
-  </md-card>
-
-  <md-card class="flex-item" >
+  <md-card class="flex-item">
     <md-card-subtitle>Subtitle first</md-card-subtitle>
     <md-card-title>Card with title</md-card-title>
     <md-card-content>
