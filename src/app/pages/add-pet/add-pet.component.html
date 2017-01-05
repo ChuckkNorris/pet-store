@@ -5,7 +5,7 @@
 <!--style="display:flex;flex-direction:row"-->
 <!--<div class="app-content" >-->
 
-<div class="flex-container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start">
+<div class="flex-container" fxLayout="row" fxLayout.xs="column" rowspan="2" fxLayoutAlign="center center" fxLayoutAlign.xs="start">
 
   <!--<div class="flex-item" fxFlex="20%" fxFlex.xs="40%"> -->
   <md-card flex-item fxFlex="20%" fxFlex.xs="40%">
@@ -42,7 +42,7 @@
 
 
 
-  <md-card *ngFor="let item of 6" class="flex-item" >
+  <md-card *ngFor="let animal of animals" class="flex-item" >
     <md-card-subtitle>Subtitle first</md-card-subtitle>
     <md-card-title>Card with title</md-card-title>
     <md-card-content>
