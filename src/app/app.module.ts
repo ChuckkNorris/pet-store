@@ -12,12 +12,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 
 import 'hammerjs';
+import { TextColorDirective } from './directives/text-color.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPetComponent,
-    BrowsePetsComponent
+    BrowsePetsComponent,
+    TextColorDirective
   ],
   imports: [
     BrowserModule,
