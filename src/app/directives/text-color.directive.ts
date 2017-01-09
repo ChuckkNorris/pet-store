@@ -1,16 +1,15 @@
 import { Directive, ElementRef, Input, HostListener } from '@angular/core';
 
-
 @Directive({
   selector: '[hoverColor]'
 })
 export class TextColorDirective {
 
   @Input('hoverColor') textColor: string = null;
-  originalColor: string;
+  private originalColor: string;
+
   constructor(private element: ElementRef) { 
     this.originalColor = this.element.nativeElement.style.backgroundColor;
-    //this.setColor(this.textColor);
   }
 
   @HostListener('mouseenter') onMouseEnter() {

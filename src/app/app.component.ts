@@ -6,7 +6,7 @@ import { Component, AfterViewInit, ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit{
-  title = 'app works!';
+
   constructor(private changeDetectionRef: ChangeDetectorRef) {}
   private rlaSafe: boolean = false;
 
