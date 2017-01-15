@@ -22,7 +22,6 @@ export class BrowsePetsComponent implements OnInit {
         breeds.forEach(breed => {
           console.log(breed.name);
           console.log(breed.id);
-          //breed.animalType = AnimalType.Dog;
           console.log(AnimalType[breed.animalType]);
         })
       }
