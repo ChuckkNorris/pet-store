@@ -1,4 +1,4 @@
-<md-card>
+<md-card style.backgroundColor="red">
   <md-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
     <md-option *ngFor="let food of animals" [value]="food.value">
       {{food.name}}
@@ -7,18 +7,8 @@
 </md-card>
 
 <div class="flex-container" fxLayout="row" fxLayoutWrap="wrap" fxLayout.xs="column" fxLayoutAlign="center center">
-
-  <md-card *ngFor="let animal of animals" class="flex-item" fxFlex="15%" fxFlex.sm="40%" fxFlex.md="25%" fxFlex.lg="20%">
-    <md-card-title>{{animal.name}}</md-card-title>
-    <md-card-subtitle>{{animal.animalType.toString()}}</md-card-subtitle>
-    <img md-card-image alt="Main image" src="https://material.angularjs.org/latest/img/washedout.png">
-
-    <md-card-content>
-      <p>{{animal.breeds.join(', ')}}, Super dog, evil dog, babushka</p>
-    </md-card-content>
-    <md-card-actions>
-      <button md-button>LIKE</button>
-      <button md-button>SHARE</button>
-    </md-card-actions>
-  </md-card>
+  <app-pet-card *ngFor="let animal of animals" 
+  class="flex-item" style="width: 350px;" fxFlex="15%" fxFlex.sm="40%" fxFlex.md="25%" fxFlex.lg="20%"
+  [pet]="animal"></app-pet-card>
+  
 </div>
