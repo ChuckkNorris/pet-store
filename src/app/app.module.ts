@@ -14,13 +14,15 @@ import { AppRoutingModule } from './app-routing.module';
 import 'hammerjs';
 import { TextColorDirective } from './directives/text-color.directive';
 import { PetService } from './services/pet.service';
+import { PetCardComponent } from './templates/pet-card/pet-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPetComponent,
     BrowsePetsComponent,
-    TextColorDirective
+    TextColorDirective,
+    PetCardComponent
   ],
   imports: [
     BrowserModule,

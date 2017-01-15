@@ -27,4 +27,10 @@ export const ANIMALS: Animal[] = [
     { animalType: AnimalType.dog, breeds: ['Husky', 'Wolf'], name: 'Shadow', age: 1},
     { animalType: AnimalType.dog, breeds: ['Dalmation'], name: 'Lucky', age: 2},
     { animalType: AnimalType.cat, breeds: ['Siamese'], name: 'Mittens', age: 3},
+    { animalType: AnimalType.cat, breeds: ['Siamese'], name: 'Mittens', age: 3},
+    { animalType: AnimalType.cat, breeds: ['Siamese'], name: 'Mittens', age: 3},
+    { animalType: AnimalType.cat, breeds: ['Siamese'], name: 'Mittens', age: 3},
+    { animalType: AnimalType.cat, breeds: ['Siamese'], name: 'Mittens', age: 3},
+    { animalType: AnimalType.cat, breeds: ['Siamese'], name: 'Mittens', age: 3},
+
 ];

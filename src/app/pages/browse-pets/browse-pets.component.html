@@ -1,14 +1,24 @@
 <md-card>
-  <md-card-title>Basic grid list</md-card-title>
-  <md-card-content>
-    <md-grid-list cols="4" rowHeight="230px" gutterSize="5px">
-
-      <md-grid-tile *ngFor="let animal of animals" style="background: gray;">
-        <md-grid-tile-header>{{animal.name}} ({{animal.animalType.toString()}})</md-grid-tile-header>
-          PIC
-        <md-grid-tile-footer>{{animal.breeds.join(', ')}}</md-grid-tile-footer>
-      </md-grid-tile>
-
-    </md-grid-list>
-  </md-card-content>
+  <md-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
+    <md-option *ngFor="let food of animals" [value]="food.value">
+      {{food.name}}
+    </md-option>.
+  </md-select>
 </md-card>
+
+<div class="flex-container" fxLayout="row" fxLayoutWrap="wrap" fxLayout.xs="column" fxLayoutAlign="center center">
+
+  <md-card *ngFor="let animal of animals" class="flex-item" fxFlex="15%" fxFlex.sm="40%" fxFlex.md="25%" fxFlex.lg="20%">
+    <md-card-title>{{animal.name}}</md-card-title>
+    <md-card-subtitle>{{animal.animalType.toString()}}</md-card-subtitle>
+    <img md-card-image alt="Main image" src="https://material.angularjs.org/latest/img/washedout.png">
+
+    <md-card-content>
+      <p>{{animal.breeds.join(', ')}}, Super dog, evil dog, babushka</p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button>LIKE</button>
+      <button md-button>SHARE</button>
+    </md-card-actions>
+  </md-card>
+</div>
