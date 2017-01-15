@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import 'hammerjs';
 import { TextColorDirective } from './directives/text-color.directive';
+import { PetService } from './services/pet.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { TextColorDirective } from './directives/text-color.directive';
     FlexLayoutModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
