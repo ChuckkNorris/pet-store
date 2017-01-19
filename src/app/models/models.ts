@@ -25,6 +25,10 @@ export interface Pet extends BaseModel {
 
 export interface Breed extends BaseModel {
     name?: string;
-    animalType?: AnimalType;
+    animal?: Animal;
+}
+
+export interface Animal extends BaseModel {
+    name?: string;
 }
 

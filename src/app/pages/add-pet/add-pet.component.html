@@ -1,11 +1,34 @@
 
+<div style="padding:20px">
+  <form (ngSubmit)="log()">
+    <md-input-container dividerColor="primary">
+      <input md-input type="text" align="center" placeholder="Pet Name" required>
+        <span md-prefix>
+          <i class="material-icons">create</i>
+          &nbsp;
+      </span>
+    </md-input-container>
+    <md-input-container dividerColor="primary">
+      <input md-input type="date" align="center" placeholder="Birthday" required>
+      <span md-prefix>
+        <i class="material-icons">cake</i>
+        &nbsp;
+      </span>
+    </md-input-container>
 
-<md-input-container dividerColor="accent">
-  <input md-input  align="center" placeholder="Name">
-</md-input-container>
+    <md-select placeholder="Animal" (onClose)="onAnimalChanged()" [(ngModel)]="selectedAnimalId" name="animalId" required="true">
+      <md-option *ngFor="let animal of animalOptions" [value]="animal.id">{{animal.name}}</md-option>
+    </md-select>
 
- <input type="file" [(ngModel)]="image" (change)="outputFileName($event)" align="center" placeholder="Name">
-  <button md-raised-button (click)="uploadFile()">Press Me</button>
+    <md-select placeholder="Breed">
+      <md-option *ngFor="let breed of Breeds" [value]="breed.id">{{breed.name}}</md-option>
+    </md-select>
+
+    <input type="file" [(ngModel)]="image" name="image" accept="image/*" (change)="outputFileName($event)" align="center" placeholder="Name">
+     <button md-raised-button type="submit">Submit Pet</button>
+  </form>
+  <button md-raised-button (click)="uploadFile()">Upload Image</button>
+</div>
   <!--<input mdInput dividerColor="warn" placeholder="Name" [(ngModel)]="name">-->
 
   <!--<input mdInput placeholder="Default color" value="example">

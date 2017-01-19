@@ -15,6 +15,7 @@ import 'hammerjs';
 import { TextColorDirective } from './directives/text-color.directive';
 import { PetService } from './services/pet.service';
 import { PetCardComponent } from './templates/pet-card/pet-card.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PetCardComponent } from './templates/pet-card/pet-card.component';
     AddPetComponent,
     BrowsePetsComponent,
     TextColorDirective,
-    PetCardComponent
+    PetCardComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
