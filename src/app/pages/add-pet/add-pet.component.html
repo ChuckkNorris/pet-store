@@ -3,6 +3,9 @@
 <md-input-container dividerColor="accent">
   <input md-input  align="center" placeholder="Name">
 </md-input-container>
+
+ <input type="file" [(ngModel)]="image" (change)="outputFileName($event)" align="center" placeholder="Name">
+  <button md-raised-button (click)="uploadFile()">Press Me</button>
   <!--<input mdInput dividerColor="warn" placeholder="Name" [(ngModel)]="name">-->
 
   <!--<input mdInput placeholder="Default color" value="example">
@@ -14,23 +17,3 @@
   <input mdInput placeholder="Warn color" value="example">
 </md-input-container>
 </md-input-container>  -->
-
-<!--*ngFor="let set of animals"-->
-<div class="flex-container" fxLayout="row" fxLayoutWrap="wrap" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start">
-
-   <md-card *ngFor="let item of animals" class="flex-item" fxFlex="25%" fxFlex.sm="50%" fxFlex.md="32%" fxFlex.lg="25%">
-    <md-card-subtitle>Subtitle first</md-card-subtitle>
-    <md-card-title>Card with title</md-card-title>
-    <md-card-content>
-      <p>This is supporting text.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad</p>
-    </md-card-content>
-    <md-card-actions>
-      <button md-button>LIKE</button>
-      <button md-button>SHARE</button>
-    </md-card-actions>
-  </md-card>
-
-
-</div>

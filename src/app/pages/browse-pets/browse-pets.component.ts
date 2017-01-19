@@ -19,7 +19,7 @@ export class BrowsePetsComponent implements OnInit {
   constructor(private _petService: PetService) { }
   @Input() myBreed: Breed = {};
   ngOnInit() {
-    this.getPets();
+    //this.getPets();
   }
 
   getPets() {

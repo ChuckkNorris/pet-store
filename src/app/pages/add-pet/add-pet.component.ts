@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ImgurService } from '../../services/imgur.service';
 @Component({
   selector: 'app-add-pet',
   templateUrl: './add-pet.component.html',
-  styleUrls: ['./add-pet.component.css']
+  styleUrls: ['./add-pet.component.css'],
+  providers: [ImgurService]
 })
 export class AddPetComponent implements OnInit {
   animals = [1, 2, 3, 4, 1, 1, 1, 1, 1];
-  constructor() { }
+  constructor(private _imgurService: ImgurService) { }
   animalSet = [];
   ngOnInit() {
     this.animalSet = this.getItemSets(this.animals, 4);
@@ -31,6 +32,17 @@ export class AddPetComponent implements OnInit {
       }
     }
     return  toReturn;
+  }
+  files: any;
+  outputFileName(event) {
+    let files = event.srcElement.files;
+    console.log(files);
+    this.files = files;
+    
+  }
+
+  uploadFile() {
+    this._imgurService.uploadImage(this.files);
   }
 
 
