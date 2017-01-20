@@ -39,6 +39,18 @@ export class PetService {
     
   }
 
+  public addAnimal(animalName: string) {
+
+  }
+
+  public addBreed(animalId: number, breedName: string) {
+
+  }
+
+  public addPet(pet: Pet) {
+    
+  }
+
   private getQueryStringList(paramKey: string, values: any[]): string {
     let toReturn = '';
     if (values) {
