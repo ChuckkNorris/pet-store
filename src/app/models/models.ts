@@ -18,7 +18,7 @@ export enum AnimalType {
 export interface Pet extends BaseModel {
     name?: string;
     size?: Size;
-    birthday?: string;
+    birthday?: Date;
     animalType?: AnimalType;
     breeds?: string[];
 }

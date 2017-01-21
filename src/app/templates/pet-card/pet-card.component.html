@@ -1,10 +1,11 @@
- <md-card>
-    <md-card-title>{{pet.name}}</md-card-title>
-    <md-card-subtitle>{{pet.animalType}}</md-card-subtitle>
+ <md-card [class.center]="center" [style.width]="width"  *ngIf="pet">
+    <md-card-title *ngIf="pet.name">{{pet.name}}</md-card-title>
+    <md-card-subtitle *ngIf="pet.name">{{pet.animalType}}</md-card-subtitle>
     <img md-card-image alt="Main image" src="https://material.angularjs.org/latest/img/washedout.png">
 
     <md-card-content>
-      <p>{{pet.breeds.join(', ')}}, Super dog, evil dog, babushka</p>
+      <p *ngIf="pet.birthday">Age: {{getAge(pet.birthday)}} Years</p>
+      <p *ngIf="pet.breeds">{{pet.breeds.join(', ')}}, Super dog, evil dog, babushka</p>
     </md-card-content>
     <md-card-actions>
       <button md-button>LIKE</button>

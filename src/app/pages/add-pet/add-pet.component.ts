@@ -10,6 +10,10 @@ import { Pet, Breed, Animal } from '../../models/models';
   providers: [ImgurService]
 })
 export class AddPetComponent implements OnInit {
+
+  pet:Pet = {};
+
+
   animals = [1, 2, 3, 4, 1, 1, 1, 1, 1];
   constructor(private _petService: PetService, private _imgurService: ImgurService) { }
   animalSet = [];

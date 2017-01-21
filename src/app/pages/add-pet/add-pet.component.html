@@ -1,15 +1,18 @@
+<md-card style="text-align: center;">
+  <app-pet-card center="true" width="300px" [pet]="pet"></app-pet-card>
+</md-card>
 
-<div style="padding:20px">
+<md-card>
   <form (ngSubmit)="log()">
     <md-input-container dividerColor="primary">
-      <input md-input type="text" align="center" placeholder="Pet Name" required>
+      <input md-input [(ngModel)]="pet.name" name="petName" type="text" align="center" placeholder="Pet Name" required>
         <span md-prefix>
           <i class="material-icons">create</i>
           &nbsp;
       </span>
     </md-input-container>
     <md-input-container dividerColor="primary">
-      <input md-input type="date" align="center" placeholder="Birthday" required>
+      <input md-input type="date" [(ngModel)]="pet.birthday" name="petBirthday" align="center" placeholder="Birthday" required>
       <span md-prefix>
         <i class="material-icons">cake</i>
         &nbsp;
@@ -24,11 +27,11 @@
       <md-option *ngFor="let breed of Breeds" [value]="breed.id">{{breed.name}}</md-option>
     </md-select>
 
-    <input type="file" [(ngModel)]="image" name="image" accept="image/*" (change)="outputFileName($event)" align="center" placeholder="Name">
+    <input type="file" [(ngModel)]="image" name="image" accept="image/*" (change)="outputFileName($event)" align="center" placeholder="Image">
      <button md-raised-button type="submit">Submit Pet</button>
   </form>
   <button md-raised-button (click)="uploadFile()">Upload Image</button>
-</div>
+</md-card>
   <!--<input mdInput dividerColor="warn" placeholder="Name" [(ngModel)]="name">-->
 
   <!--<input mdInput placeholder="Default color" value="example">

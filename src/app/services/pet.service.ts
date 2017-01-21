@@ -18,7 +18,7 @@ export class PetService {
     });
   }
 
-  public getBreeds(animalId: number) : Observable<Breed[]> {
+  public getBreeds(animalId?: number) : Observable<Breed[]> {
     return Observable.create(obs => {
       this._http.get(this.hostUrl + 'breeds').subscribe(breeds => {
         console.log(breeds);
