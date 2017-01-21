@@ -40,11 +40,17 @@ export class PetService {
   }
 
   public addAnimal(animalName: string) {
-
+    let body = {name: animalName};
+    return  Observable.create(obs => {;
+      this._http.post(this.hostUrl + 'animals', body).subscribe(() => obs.next());
+    });
   }
 
   public addBreed(animalId: number, breedName: string) {
-
+    let body = {animalId: animalId, breedName: breedName};
+    return  Observable.create(obs => {;
+      this._http.post(this.hostUrl + 'animals', body).subscribe(() => obs.next());
+    });
   }
 
   public addPet(pet: Pet) {
