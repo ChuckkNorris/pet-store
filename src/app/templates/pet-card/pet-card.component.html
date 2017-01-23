@@ -1,8 +1,8 @@
  <md-card [class.center]="center" [style.width]="width"  *ngIf="pet">
     <md-card-title *ngIf="pet.name">{{pet.name}}</md-card-title>
     <md-card-subtitle *ngIf="pet.name">{{pet.animalType}}</md-card-subtitle>
-    <img md-card-image alt="Main image" src="https://material.angularjs.org/latest/img/washedout.png">
-
+    <img md-card-image style="height: 300px;" alt="Main image" [src]="pet.image">
+ <!--src="https://material.angularjs.org/latest/img/washedout.png"-->
     <md-card-content>
       <p *ngIf="pet.birthday">Age: {{getAge(pet.birthday)}} Years</p>
       <p *ngIf="pet.breeds">{{pet.breeds.join(', ')}}, Super dog, evil dog, babushka</p>

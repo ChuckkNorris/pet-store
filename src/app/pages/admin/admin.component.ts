@@ -11,7 +11,7 @@ import { PetService } from '../../services/pet.service';
 export class AdminComponent implements OnInit {
 
   constructor(private _petService: PetService) { }
-
+  
   animalOptions: any[] = [];
   breedOptions: any[] = [];
   ngOnInit() {

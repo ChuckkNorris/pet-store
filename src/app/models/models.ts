@@ -21,6 +21,7 @@ export interface Pet extends BaseModel {
     birthday?: Date;
     animalType?: AnimalType;
     breeds?: string[];
+    image?: string;
 }
 
 export interface Breed extends BaseModel {

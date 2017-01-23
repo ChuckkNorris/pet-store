@@ -1,7 +1,6 @@
 <md-card style="text-align: center;">
   <app-pet-card center="true" width="300px" [pet]="pet"></app-pet-card>
 </md-card>
-
 <md-card>
   <form (ngSubmit)="log()">
     <md-input-container dividerColor="primary">
@@ -27,8 +26,9 @@
       <md-option *ngFor="let breed of breedOptions" [value]="breed.id">{{breed.name}}</md-option>
     </md-select>
 
-    <input type="file" [(ngModel)]="image" name="image" accept="image/*" (change)="outputFileName($event)" align="center" placeholder="Image">
-     <button md-raised-button type="submit">Submit Pet</button>
+    <input type="file" name="image" accept="image/*" (change)="setPetImage($event)" align="center" placeholder="Image">
+    <button (click)="outputFileModel()" md-raised-button color="accent">Output File Model</button>
+    <button md-raised-button type="submit">Submit Pet</button>
   </form>
   <button md-raised-button (click)="uploadFile()">Upload Image</button>
 </md-card>
