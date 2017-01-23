@@ -1,23 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { ImgurImage } from '../models/models';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ImgurService {
 
   constructor(private _http: Http) { }
 
-  uploadImage(imageFiles: File[]) {
-    let file = imageFiles[0];
+  uploadImage(imageFile: File) : Observable<string> {
     let formData:FormData = new FormData();
-    formData.append('image', file, file.name);
+    formData.append('image', imageFile, imageFile.name);
     let imgurUrl = '';
     let headers:Headers = new Headers();
     headers.append('Authorization', 'Client-ID a5f5a8a9e31b6f4');
-    this._http.post('https://api.imgur.com/3/image', formData, {
-      headers: headers
-    }).subscribe(response => {
-      console.log(response);
-    })
+    return Observable.create(obs => {
+      this._http.post('https://api.imgur.com/3/image', formData, {
+        headers: headers
+      }).subscribe(response => {
+        let imgurResponse = response.json() as ImgurImage;
+        obs.next(imgurResponse.link);
+      })
+    });
   }
 
 }
