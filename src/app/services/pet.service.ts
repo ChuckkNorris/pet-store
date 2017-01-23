@@ -7,24 +7,43 @@ import { Breed, Animal, Pet } from '../models/models';
 export class PetService {
 
   constructor(private _http: Http) { }
-  private hostUrl: string = 'http://localhost:5000/api/';
+  private hostUrl: string = 'http://localhost:64804/api/';
 
-  public getAnimals() : Observable<Animal[]> {
-    return  Observable.create(obs => {
-      this._http.get(this.hostUrl + 'animals').subscribe(animals => {
-        console.log(animals);
-        obs.next(animals.json() as Animal[]);
-      })
+  public getRequest<T>(endPoint: string, queryString?: string) : Observable<T> {
+    return Observable.create(obs => {
+      let fullUrl = this.hostUrl + endPoint;
+      if (queryString)
+        fullUrl += '?' + queryString;
+      this._http.get(fullUrl).subscribe(response => {
+        if (response.ok)
+          obs.next(response.json() as T);
+        else
+          obs.next(null);
+      });
     });
   }
 
-  public getBreeds(animalId?: number) : Observable<Breed[]> {
-    return Observable.create(obs => {
-      this._http.get(this.hostUrl + 'breeds').subscribe(breeds => {
-        console.log(breeds);
-        obs.next(breeds.json() as Breed[]);
-      });
+  public postRequest(endPoint:string, body:any, queryString?:string): Observable<any> {
+    let fullUrl = this.hostUrl + endPoint;
+    if (queryString)
+      fullUrl += '?' + queryString;
+    return  Observable.create(obs => {
+      this._http.post(fullUrl, body).subscribe(() => obs.next());
     });
+  }
+
+  public getAnimals() : Observable<Animal[]> {
+    return this.getRequest<Animal[]>('animals');
+  }
+
+  public getBreeds(animalId?: number) : Observable<Breed[]> {
+    return this.getRequest<Breed[]>('breeds');
+    // return Observable.create(obs => {
+    //   this._http.get(this.hostUrl + 'breeds').subscribe(breeds => {
+    //     console.log(breeds);
+    //     obs.next(breeds.json() as Breed[]);
+    //   });
+    // });
   }
 
   public getPets(animalIds: number[], breedIds: number[]) : Observable<Pet[]> {
@@ -39,21 +58,21 @@ export class PetService {
     
   }
 
-  public addAnimal(animalName: string) {
+  public saveAnimal(animalName: string) : Observable<any> {
     let body = {name: animalName};
     return  Observable.create(obs => {;
       this._http.post(this.hostUrl + 'animals', body).subscribe(() => obs.next());
     });
   }
 
-  public addBreed(animalId: number, breedName: string) {
-    let body = {animalId: animalId, breedName: breedName};
+  public saveBreed(animalId: number, breedName: string) : Observable<any> {
+    let body = {animalId: animalId, name: breedName};
     return  Observable.create(obs => {;
-      this._http.post(this.hostUrl + 'animals', body).subscribe(() => obs.next());
+      this._http.post(this.hostUrl + 'breeds', body).subscribe(() => obs.next());
     });
   }
 
-  public addPet(pet: Pet) {
+  public savePet(pet: Pet) {
     
   }
 
