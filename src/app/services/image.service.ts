@@ -39,7 +39,6 @@ export class ImageService {
     // Get the images current width and height
     let width = img.width;
     let height = img.height;
-
     // Set the WxH to fit the Max values (but maintain proportions)
     if (width > height) {
         if (width > maxWidth) {
@@ -52,19 +51,13 @@ export class ImageService {
             height = maxHeight;
         }
     }
-
     // create a canvas object
     let canvas = document.createElement("canvas");
-
     // Set the canvas to the new calculated dimensions
     canvas.width = width;
     canvas.height = height;
     let ctx = canvas.getContext("2d");  
-
     ctx.drawImage(img, 0, 0,  width, height); 
-
-    // Get this encoded as a jpeg
-    // IMPORTANT: 'jpeg' NOT 'jpg'
     let dataUrl = canvas.toDataURL('image/jpeg');
     return dataUrl;
   }
