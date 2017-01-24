@@ -35,7 +35,7 @@ export class ImageService {
 
   }
 
-  resize(img, maxWidth: number, maxHeight: number): string {
+  private resize(img, maxWidth: number, maxHeight: number): string {
     // Get the images current width and height
     let width = img.width;
     let height = img.height;
@@ -62,7 +62,7 @@ export class ImageService {
     return dataUrl;
   }
 
-  dataURLToBlob(dataURL) {
+  private dataURLToBlob(dataURL) {
     let BASE64_MARKER = ';base64,';
     if (dataURL.indexOf(BASE64_MARKER) == -1) {
         let parts = dataURL.split(',');

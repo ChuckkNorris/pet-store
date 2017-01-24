@@ -2,7 +2,6 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { ImgurService } from '../../services/imgur.service';
 import { PetService } from '../../services/pet.service';
 import { Pet, Breed, Animal } from '../../models/models';
-import { Observable } from 'rxjs';
 import { ImageService } from '../../services/image.service';
 
 @Component({
@@ -12,28 +11,24 @@ import { ImageService } from '../../services/image.service';
   providers: [ImgurService, ImageService]
 })
 export class AddPetComponent implements OnInit {
-
-  pet:Pet = {};
-
-
-  animals = [1, 2, 3, 4, 1, 1, 1, 1, 1];
-  constructor(private _petService: PetService, 
+  constructor(
+    private _petService: PetService, 
     private _imageService: ImageService,
-    private _imgurService: ImgurService, private _zone: NgZone) { }
-  animalSet = [];
+    private _imgurService: ImgurService) { }
+
   ngOnInit() {
     this._petService.getAnimals().subscribe(animals => this.animalOptions = animals);
   }
 
-  myPet: Pet = {};
+  pet:Pet = {};
   animalOptions: Animal[] = [];
   breedOptions: Breed[] = [];
   selectedAnimalId: number;
+
   onAnimalChanged() {
-    if (this.selectedAnimalId) {
-      this._petService.getBreeds(this.selectedAnimalId).subscribe(breeds => this.breedOptions = breeds);
-    }
-    
+    if (this.selectedAnimalId) 
+      this._petService.getBreeds(this.selectedAnimalId)
+        .subscribe(breeds => this.breedOptions = breeds);
   }
  
   imageFile: File;

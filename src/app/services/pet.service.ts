@@ -7,7 +7,24 @@ import { Breed, Animal, Pet } from '../models/models';
 export class PetService {
 
   constructor(private _http: Http) { }
-  private hostUrl: string = 'http://localhost:64804/api/';
+  private hostUrl: string = 'http://localhost:5000/api/';
+
+   public getAnimals() : Observable<Animal[]> {
+    return this.getRequest<Animal[]>('animals');
+  }
+
+  public getBreeds(animalId?: number) : Observable<Breed[]> {
+    let queryString = '';
+    if (animalId)
+      queryString += 'animalId=' + animalId;
+    return this.getRequest<Breed[]>('breeds', queryString);
+  }
+
+  public getPets(animalIds: number[], breedIds: number[]) : Observable<Pet[]> {
+    let animalQueryString = this.getQueryStringList('animalIds', animalIds);
+    let breedQueryString = this.getQueryStringList('breedIds', breedIds);
+    return this.getRequest<Pet[]>('pets',animalQueryString + breedQueryString);
+  }
 
   public getRequest<T>(endPoint: string, queryString?: string) : Observable<T> {
     return Observable.create(obs => {
@@ -30,32 +47,6 @@ export class PetService {
     return  Observable.create(obs => {
       this._http.post(fullUrl, body).subscribe(() => obs.next());
     });
-  }
-
-  public getAnimals() : Observable<Animal[]> {
-    return this.getRequest<Animal[]>('animals');
-  }
-
-  public getBreeds(animalId?: number) : Observable<Breed[]> {
-    return this.getRequest<Breed[]>('breeds');
-    // return Observable.create(obs => {
-    //   this._http.get(this.hostUrl + 'breeds').subscribe(breeds => {
-    //     console.log(breeds);
-    //     obs.next(breeds.json() as Breed[]);
-    //   });
-    // });
-  }
-
-  public getPets(animalIds: number[], breedIds: number[]) : Observable<Pet[]> {
-    let animalQueryString = this.getQueryStringList('animalIds', animalIds);
-    let breedQueryString = this.getQueryStringList('breedIds', breedIds);
-    return  Observable.create(obs => {
-      this._http.get(this.hostUrl + 'pets?' + animalQueryString + breedQueryString).subscribe(pets => {
-        console.log(pets);
-        obs.next(pets.json() as Pet[]);
-      });
-    });
-    
   }
 
   public saveAnimal(animalName: string) : Observable<any> {
