@@ -2,11 +2,13 @@ export interface BaseModel {
     id?: number;
 }
 
-export interface Pet extends BaseModel {
+export class Pet implements BaseModel {
     name?: string;
     birthday?: Date;
     breeds?: Breed[];
     imageUrl?: string;
+    image?: any;
+    
 }
 
 export interface Breed extends BaseModel {

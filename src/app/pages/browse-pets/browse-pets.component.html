@@ -5,10 +5,12 @@
     </md-option>
   </md-select>
 </md-card>
-
-<div class="flex-container" fxLayout="row" fxLayoutWrap="wrap" fxLayout.xs="column" fxLayoutAlign="center center">
-  <app-pet-card *ngFor="let animal of animals" 
-  class="flex-item" style="width: 350px;" fxFlex="15%" fxFlex.sm="40%" fxFlex.md="25%" fxFlex.lg="20%"
-  [pet]="animal"></app-pet-card>
-  
-</div>
+<md-card>
+  <div class="flex-container" fxLayout="row" fxLayoutWrap="wrap" fxLayout.xs="column" fxLayoutAlign="center center">
+    <app-pet-card *ngFor="let animal of animals" 
+     
+      class="flex-item" 
+      fxFlex="15%" fxFlex.sm="40%" fxFlex.md="25%" fxFlex.lg="20%"
+      [pet]="animal"></app-pet-card>
+  </div>
+</md-card>

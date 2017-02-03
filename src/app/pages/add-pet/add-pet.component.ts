@@ -33,6 +33,14 @@ export class AddPetComponent implements OnInit {
  
   imageFile: File;
 
+  savePet(petToSave: Pet) {
+    this._imgurService.uploadImage(this.imageFile).subscribe(imageUrl => {
+      petToSave.image = null;
+      petToSave.imageUrl = imageUrl;
+      this._petService.savePet(petToSave)
+    })
+  }
+
   setPetImage(event) {
     let files: File[] = event.srcElement.files;
     if (files.length > 0) {
@@ -48,9 +56,6 @@ export class AddPetComponent implements OnInit {
     console.log(event);
   }
 
-  uploadFile() {
-    this._imgurService.uploadImage(this.imageFile);
-  }
 
   getItemSets(collection: any[], itemsPerRow: number): any[][] {
     let numberOfSets = Math.ceil(collection.length / itemsPerRow);

@@ -1,10 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Pet, BaseModel, AnimalType } from '../../models/models';
+import { Pet } from '../../models/models';
 
-  export interface Breed extends BaseModel {
-    name?: string;
-    animalType?: AnimalType;
-}
 
 @Component({
   selector: 'app-pet-card',
@@ -12,12 +8,13 @@ import { Pet, BaseModel, AnimalType } from '../../models/models';
   styleUrls: ['./pet-card.component.css']
 })
 export class PetCardComponent implements OnInit {
-  @Input() pet: Pet = {};
+  @Input() pet: Pet = { };
   @Input() center: boolean = false;
   @Input() width: any = 'auto';
 
   constructor() { }
   ngOnInit() {
+    this.pet.imageUrl = 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg';
   }
 
   getAge(birthday:Date):string {

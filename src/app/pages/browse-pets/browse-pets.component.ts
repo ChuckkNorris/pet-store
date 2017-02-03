@@ -1,11 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ANIMALS } from '../../animal-data';
 import { PetService } from '../../services/pet.service';
- import { AnimalType, BaseModel } from '../../models/models';
-export interface Breed extends BaseModel {
-    name?: string;
-    animalType?: AnimalType;
-}
+ import { Breed } from '../../models/models';
+
 
 
 @Component({
@@ -28,7 +25,7 @@ export class BrowsePetsComponent implements OnInit {
         breeds.forEach(breed => {
           console.log(breed.name);
           console.log(breed.id);
-          console.log(AnimalType[breed.animal.name]);
+          //console.log(AnimalType[breed.animal.name]);
         })
       }
     );

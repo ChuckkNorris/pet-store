@@ -3,7 +3,7 @@
 //     Cat = 1,
 //     Hamster = 2
 // }
-import { Pet, AnimalType, Breed  } from './models/models';
+import { Pet, Animal, Breed  } from './models/models';
 // export class AnimalType {
 //     constructor(public value: string) {}
 //     toString() {
@@ -23,14 +23,10 @@ import { Pet, AnimalType, Breed  } from './models/models';
 // }
 
 export const ANIMALS: Pet[] = [
-    { animalType: AnimalType.Dog, breeds: ['Yellow Labrador', 'Rotweiler'], name: 'Bitey'},
-    { animalType: AnimalType.Dog, breeds: ['Husky', 'Wolf'], name: 'Shadow'},
-    { animalType: AnimalType.Dog, breeds: ['Dalmation'], name: 'Lucky'},
-    { animalType: AnimalType.Cat, breeds: ['Siamese'], name: 'Mittens'},
-    { animalType: AnimalType.Cat, breeds: ['Siamese'], name: 'Mittens'},
-    { animalType: AnimalType.Cat, breeds: ['Siamese'], name: 'Mittens'},
-    { animalType: AnimalType.Cat, breeds: ['Siamese'], name: 'Mittens'},
-    { animalType: AnimalType.Cat, breeds: ['Siamese'], name: 'Mittens'},
-    { animalType: AnimalType.Cat, breeds: ['Siamese'], name: 'Mittens'},
+    { breeds: [{name:'Yellow Labrador', animal: {name: 'dog'}}, {name:'Rotweiler', animal: {name: 'dog'}}], name: 'Bitey'},
+    { breeds: [{name:'Yellow Labrador', animal: {name: 'dog'}}, {name:'Rotweiler', animal: {name: 'dog'}}], name: 'Bitey'},
+    { breeds: [{name:'Yellow Labrador', animal: {name: 'dog'}}, {name:'Rotweiler', animal: {name: 'dog'}}], name: 'Bitey'},
+    { breeds: [{name:'Yellow Labrador', animal: {name: 'dog'}}, {name:'Rotweiler', animal: {name: 'dog'}}], name: 'Bitey'},
+    { breeds: [{name:'Yellow Labrador', animal: {name: 'dog'}}, {name:'Rotweiler', animal: {name: 'dog'}}], name: 'Bitey'}
 
 ];
