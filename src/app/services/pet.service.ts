@@ -63,7 +63,8 @@ export class PetService {
     });
   }
 
-  public savePet(pet: Pet) {
+  public savePet(pet: Pet) : Observable<any> {
+    return this.postRequest('pets', pet);
     // this.postRequest()
   }
 

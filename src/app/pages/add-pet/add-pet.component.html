@@ -2,7 +2,7 @@
   <app-pet-card center="true" width="300px" [pet]="pet"></app-pet-card>
 </md-card>
 <md-card>
-  <form (ngSubmit)="log()">
+  <form (ngSubmit)="savePet(pet)">
     <md-card>
       <md-input-container dividerColor="primary">
         <input md-input [(ngModel)]="pet.name" name="petName" type="text" align="center" placeholder="Pet Name" required>
@@ -23,7 +23,7 @@
         <md-option *ngFor="let animal of animalOptions" [value]="animal.id">{{animal.name}}</md-option>
       </md-select>
 
-      <md-select required="true" placeholder="Breed">
+      <md-select required="true" placeholder="Breed" [(ngModel)]="pet.breed.Id" name="breedId">
         <md-option *ngFor="let breed of breedOptions" [value]="breed.id">{{breed.name}}</md-option>
       </md-select>
     </md-card>
@@ -34,7 +34,7 @@
     <button md-raised-button color="primary" type="submit">Submit Pet</button>
     </md-card>
   </form>
-  <button md-raised-button (click)="uploadFile()">Upload Image</button>
+  {{pet | json}}
 </md-card>
   <!--<input mdInput dividerColor="warn" placeholder="Name" [(ngModel)]="name">-->
 

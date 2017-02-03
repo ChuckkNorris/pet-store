@@ -12,9 +12,10 @@ export class PetCardComponent implements OnInit {
   @Input() center: boolean = false;
   @Input() width: any = 'auto';
 
+
   constructor() { }
   ngOnInit() {
-    this.pet.imageUrl = 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg';
+    // this.pet.imageUrl = 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg';
   }
 
   getAge(birthday:Date):string {

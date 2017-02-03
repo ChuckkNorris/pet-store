@@ -5,7 +5,7 @@ export interface BaseModel {
 export class Pet implements BaseModel {
     name?: string;
     birthday?: Date;
-    breeds?: Breed[];
+    breed?: Breed;
     imageUrl?: string;
     image?: any;
     
