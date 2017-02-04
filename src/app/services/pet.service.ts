@@ -20,9 +20,9 @@ export class PetService {
     return this.getRequest<Breed[]>('breeds', queryString);
   }
 
-  public getPets(animalIds: number[], breedIds: number[]) : Observable<Pet[]> {
-    let animalQueryString = this.getQueryStringList('animalIds', animalIds);
-    let breedQueryString = this.getQueryStringList('breedIds', breedIds);
+  public getPets(animalId?: number, breedId?: number) : Observable<Pet[]> {
+    let animalQueryString = this.getQueryStringList('animalId', [animalId]);
+    let breedQueryString = this.getQueryStringList('breedId', [breedId]);
     return this.getRequest<Pet[]>('pets',animalQueryString + breedQueryString);
   }
 

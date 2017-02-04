@@ -1,0 +1,9 @@
+<md-select placeholder="Animal" (onClose)="onAnimalChanged()" [(ngModel)]="selectedAnimalId" name="animalId" required="true">
+  <md-option *ngIf="allowAll">All</md-option>
+  <md-option *ngFor="let animal of animalOptions" [value]="animal.id">{{animal.name}}</md-option>
+</md-select>
+
+<md-select required="true" placeholder="Breed" (onClose)="onBreedChanged()" [(ngModel)]="selectedBreedId" name="breedId">
+  <md-option *ngIf="allowAll">All</md-option>
+  <md-option *ngFor="let breed of breedOptions" [value]="breed.id">{{breed.name}}</md-option>
+</md-select>

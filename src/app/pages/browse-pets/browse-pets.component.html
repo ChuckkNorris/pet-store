@@ -1,16 +1,15 @@
 <md-card style.backgroundColor="red">
-  <md-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
-    <md-option *ngFor="let food of animals" [value]="food.value">
-      {{food.name}}
-    </md-option>
-  </md-select>
+  <app-pet-options 
+    allowAll="true"
+    (change)="getPets()" 
+    [(selectedAnimalId)]="selectedAnimalId" 
+    [(selectedBreedId)]="selectedBreedId"></app-pet-options>
 </md-card>
 <md-card>
   <div class="flex-container" fxLayout="row" fxLayoutWrap="wrap" fxLayout.xs="column" fxLayoutAlign="center center">
-    <app-pet-card *ngFor="let animal of animals" 
-     
+    <app-pet-card *ngFor="let pet of pets"
       class="flex-item" 
       fxFlex="15%" fxFlex.sm="40%" fxFlex.md="25%" fxFlex.lg="20%"
-      [pet]="animal"></app-pet-card>
+      [pet]="pet"></app-pet-card>
   </div>
 </md-card>

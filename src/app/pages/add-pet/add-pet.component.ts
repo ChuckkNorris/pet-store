@@ -4,6 +4,7 @@ import { PetService } from '../../services/pet.service';
 import { Pet, Breed, Animal } from '../../models/models';
 import { ImageService } from '../../services/image.service';
 import { MdSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-pet',
@@ -15,6 +16,7 @@ export class AddPetComponent implements OnInit {
   constructor(
     private _petService: PetService, 
     private _snackBar: MdSnackBar,
+    private _router: Router,
     private _imageService: ImageService,
     private _imgurService: ImgurService) { }
 
@@ -41,7 +43,7 @@ export class AddPetComponent implements OnInit {
       petToSave.image = null;
       petToSave.imageUrl = imageUrl;
       this._petService.savePet(petToSave).subscribe(() => {
-        this.showNotification('Item saved successfully');
+        this.showNotification('Pet saved successfully!');
       });
     })
   }
@@ -49,6 +51,7 @@ export class AddPetComponent implements OnInit {
   showNotification(message: string) {
     this._snackBar.open(message, null, {duration: 2000 }).afterDismissed().subscribe(() => {
       console.log('Snackbar is done!');
+      this._router.navigate(['/browse-pets']);
     })
   }
 
