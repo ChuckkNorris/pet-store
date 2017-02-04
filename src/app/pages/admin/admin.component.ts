@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  } from 'module';
 import { PetService } from '../../services/pet.service';
-
+import { Animal, Breed } from '../../models/models';
 
 @Component({
   selector: 'app-admin',
@@ -19,13 +19,14 @@ export class AdminComponent implements OnInit {
     this._petService.getBreeds().subscribe(breeds => this.breedOptions = breeds);
   }
 
-
+  animal: Animal = {};
   saveAnimal(animalName: string) {
-    this._petService.saveAnimal(animalName).subscribe();
+    this._petService.saveAnimal(this.animal).subscribe();
   }
 
-  saveBreed(animalId: number, breedName: string) {
-    this._petService.saveBreed(animalId, breedName).subscribe();
+  breed: Breed = { animal: {}};
+  saveBreed() {
+    this._petService.saveBreed(this.breed).subscribe();
   }
 
 }

@@ -49,18 +49,12 @@ export class PetService {
     });
   }
 
-  public saveAnimal(animalName: string) : Observable<any> {
-    let body = {name: animalName};
-    return  Observable.create(obs => {;
-      this._http.post(this.hostUrl + 'animals', body).subscribe(() => obs.next());
-    });
+  public saveAnimal(animal: Animal) : Observable<any> {
+    return this.postRequest('animals', animal);
   }
 
-  public saveBreed(animalId: number, breedName: string) : Observable<any> {
-    let body = {animalId: animalId, name: breedName};
-    return  Observable.create(obs => {;
-      this._http.post(this.hostUrl + 'breeds', body).subscribe(() => obs.next());
-    });
+  public saveBreed(breed: Breed) : Observable<any> {
+    return this.postRequest('breeds', breed);
   }
 
   public savePet(pet: Pet) : Observable<any> {

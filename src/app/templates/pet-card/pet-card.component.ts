@@ -19,11 +19,19 @@ export class PetCardComponent implements OnInit {
   }
 
   getAge(birthday:Date):string {
+    let toReturn:string = '';
     let msBetweenDates = new Date().getTime() - new Date(birthday).getTime();
-    let ageInYears = msBetweenDates / 31536000000;
-   // console.log(val);
+    let ageInYears = +(msBetweenDates / 31536000000).toFixed(3);
+    if (ageInYears > 1) {
+       toReturn += Math.floor(ageInYears).toString() + ' years';
+    }
     
-    return  ageInYears.toFixed(2);
+    let splitYear = ageInYears.toFixed(3).toString().split('.');
+    if (splitYear[1] && +splitYear[1] > 0) {
+      let months = Math.ceil((+('.' + splitYear[1]) * 12));
+      toReturn += ' ' + months + ' months';
+    }
+    return toReturn;
   }
 
 }
