@@ -12,6 +12,6 @@ export class AppComponent implements AfterViewInit{
 
   ngAfterViewInit() {
     this.rlaSafe = true;
-    this.changeDetectionRef.detectChanges();
+    //this.changeDetectionRef.detectChanges();
   }
 }

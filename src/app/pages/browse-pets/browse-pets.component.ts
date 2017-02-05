@@ -5,8 +5,8 @@ import { Pet } from '../../models/models';
 @Component({
   selector: 'app-browse-pets',
   templateUrl: './browse-pets.component.html',
-  styleUrls: ['./browse-pets.component.css']
-
+  styleUrls: ['./browse-pets.component.css'],
+  
 })
 export class BrowsePetsComponent implements OnInit {
   constructor(private _petService: PetService) { }
@@ -14,7 +14,6 @@ export class BrowsePetsComponent implements OnInit {
   selectedAnimalId: number;
   selectedBreedId: number;
   ngOnInit() {
-    //this.getPets();
     this.getPets();
   }
 

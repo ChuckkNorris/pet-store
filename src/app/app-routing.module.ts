@@ -7,7 +7,7 @@ import { BrowsePetsComponent } from './pages/browse-pets/browse-pets.component';
 import { AdminComponent } from './pages/admin/admin.component';
 
 export const routes: Routes = [
-  { path: '', pathMatch:'full', redirectTo: 'browse-pets'},
+  { path: '', pathMatch:'full', redirectTo: '/browse-pets'},
   { path: 'browse-pets', component: BrowsePetsComponent},
   { path: 'sell-pet', component: AddPetComponent},
   { path: 'admin', component: AdminComponent}
