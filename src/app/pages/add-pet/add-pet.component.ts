@@ -50,7 +50,6 @@ export class AddPetComponent implements OnInit {
 
   showNotification(message: string) {
     this._snackBar.open(message, null, {duration: 2000 }).afterDismissed().subscribe(() => {
-      console.log('Snackbar is done!');
       this._router.navigate(['/browse-pets']);
     })
   }
@@ -66,31 +65,5 @@ export class AddPetComponent implements OnInit {
       });
     }
   }
-
-  log(event) {
-    console.log(event);
-  }
-
-
-  getItemSets(collection: any[], itemsPerRow: number): any[][] {
-    let numberOfSets = Math.ceil(collection.length / itemsPerRow);
-    let toReturn: any[] = [];
-
-    for (let setCounter = 0; setCounter < numberOfSets; setCounter++) {
-      let itemsInSet = [];
-      for (let itemCounter = setCounter * itemsPerRow; itemCounter < collection.length; itemCounter++) {
-        itemsInSet.push(collection[itemCounter]);
-
-        if ((itemCounter + 1) % itemsPerRow == 0 || itemCounter == collection.length - 1) {
-          toReturn.push([])
-          toReturn[setCounter].push(itemsInSet);
-          break;
-        }
-
-      }
-    }
-    return  toReturn;
-  }
-
 
 }
