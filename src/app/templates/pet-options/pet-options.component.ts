@@ -26,8 +26,15 @@ export class PetOptionsComponent implements OnInit {
       if (this.selectedAnimalId) 
       this._petService.getBreeds(this.selectedAnimalId)
         .subscribe(breeds => this.breedOptions = breeds);
+      this.resetBreeds()
       this.selectedAnimalIdChange.emit(this.selectedAnimalId);
       this.onChange();
+  }
+
+  resetBreeds() {
+    this.selectedBreedId = undefined;
+    this.breedOptions = [];
+    this.onBreedChanged();
   }
 
   onBreedChanged() {

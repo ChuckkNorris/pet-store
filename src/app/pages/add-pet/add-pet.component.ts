@@ -29,11 +29,6 @@ export class AddPetComponent implements OnInit {
   breedOptions: Breed[] = [];
   selectedAnimalId: number;
 
-  onAnimalChanged() {
-    if (this.selectedAnimalId) 
-      this._petService.getBreeds(this.selectedAnimalId)
-        .subscribe(breeds => this.breedOptions = breeds);
-  }
  
   imageFile: File;
   imageBlob: Blob;
