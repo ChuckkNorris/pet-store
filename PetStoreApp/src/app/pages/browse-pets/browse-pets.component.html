@@ -1,0 +1,17 @@
+<md-card style.backgroundColor="red">
+  <app-pet-options 
+    allowAll="true"
+    (change)="getPets()" 
+    [(selectedAnimalId)]="selectedAnimalId" 
+    [(selectedBreedId)]="selectedBreedId"></app-pet-options>
+    Animal:{{selectedAnimalId}} and Breed:{{selectedBreedId}}
+</md-card>
+<app-food></app-food>
+<md-card>
+  <div class="flex-container" fxLayout="row" fxLayoutWrap="wrap" fxLayout.xs="column" fxLayoutAlign="center center">
+    <app-pet-card *ngFor="let pet of pets"
+      class="flex-item" 
+      fxFlex="15%" fxFlex.sm="40%" fxFlex.md="25%" fxFlex.lg="20%"
+      [pet]="pet"></app-pet-card>
+  </div>
+</md-card>

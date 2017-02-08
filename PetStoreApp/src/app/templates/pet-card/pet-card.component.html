@@ -1,0 +1,13 @@
+ <md-card [class.center]="center" [style.width]="width"  *ngIf="pet">
+    <md-card-title *ngIf="pet.name">{{pet.name}}</md-card-title>
+    <md-card-subtitle *ngIf="pet.name">{{pet.animalType}}</md-card-subtitle>
+    <img *ngIf="pet.imageUrl || pet.image" md-card-image style="height: 300px;" alt="Main image" [src]="pet.imageUrl || pet.image">
+    <md-card-content>
+      <p *ngIf="pet.birthday">Age: {{getAge(pet.birthday)}}</p>
+      <p *ngIf="pet.breeds"><span *ngFor="let breed of pet.breeds">{{breed.name}}, </span></p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button>Adopt</button>
+      <button md-button>Details</button>
+    </md-card-actions>
+  </md-card>

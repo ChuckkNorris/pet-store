@@ -1,0 +1,37 @@
+<md-card style="text-align: center;">
+  <app-pet-card center="true" width="300px" [pet]="pet"></app-pet-card>
+</md-card>
+<md-card>
+  <form (ngSubmit)="savePet(pet)">
+    <md-card>
+      <md-input-container dividerColor="primary">
+        <input md-input [(ngModel)]="pet.name" name="petName" type="text" align="center" placeholder="Pet Name" required>
+          <span md-prefix>
+            <i class="material-icons">create</i>
+            &nbsp;
+        </span>
+      </md-input-container>
+      <md-input-container dividerColor="primary">
+        <input md-input type="date" [(ngModel)]="pet.birthday" name="petBirthday" align="center" placeholder="Birthday" required>
+        <span md-prefix>
+          <i class="material-icons">cake</i>
+          &nbsp;
+        </span>
+      </md-input-container>
+
+      <app-pet-options 
+        [allowAll]="false"
+        [(selectedAnimalId)]="selectedAnimalId" 
+        [(selectedBreedId)]="pet.breed.Id"></app-pet-options>
+
+    </md-card>
+    <md-card>
+    <label>Image<br>
+      <input required type="file" name="image" accept="image/*" (change)="setPetImage($event)" align="center" placeholder="Image">
+    </label>
+    <button md-raised-button color="primary" type="submit">Submit Pet</button>
+    </md-card>
+  </form>
+  {{pet | json}}
+</md-card>
+

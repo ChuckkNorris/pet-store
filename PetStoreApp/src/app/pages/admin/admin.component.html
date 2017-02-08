@@ -1,0 +1,20 @@
+<md-card>
+    <h1 style="text-align: center">Add Animal</h1>
+    <md-input-container>
+        <input [(ngModel)]="animal.name" md-input placeholder="Animal Name" />
+    </md-input-container>
+    <button md-raised-button (click)="saveAnimal(animalName)" color="primary">Save Animal</button>
+    {{animalOptions | json}}
+</md-card>
+
+<md-card>
+    <h1 style="text-align: center">Add Breed</h1>
+    <md-select [(ngModel)]="breed.animal.id">
+        <md-option *ngFor="let animal of animalOptions" [value]="animal.id">{{animal.name}}</md-option>
+    </md-select>
+    <md-input-container>
+        <input [(ngModel)]="breed.name" md-input placeholder="Breed Name" />
+    </md-input-container>
+    <button (click)="saveBreed(animalId, breedName)" md-raised-button color="primary">Save Animal</button>
+    {{breedOptions | json}}
+</md-card>
